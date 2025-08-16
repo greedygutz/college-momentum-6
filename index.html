@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Momentum 6</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>College Momentum</h1>
+    <nav class="tabs" aria-label="Primary">
+      <button class="tab" data-view="todayView" aria-controls="todayView" aria-selected="true">Today</button>
+      <button class="tab" data-view="plannerView" aria-controls="plannerView">Planner</button>
+      <button class="tab" data-view="habitsView" aria-controls="habitsView">Habits</button>
+      <button class="tab" data-view="focusView" aria-controls="focusView">Focus</button>
+      <button class="tab" data-view="notesView" aria-controls="notesView">Notes</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="todayView" class="view">
+      <h2>Today</h2>
+      <div id="todaySummary" class="card"></div>
+    </section>
+
+    <section id="plannerView" class="view" hidden>
+      <h2>Planner</h2>
+      <form id="task-form" class="row">
+        <input id="task-title" placeholder="New task…" required />
+        <input id="task-date" type="date" />
+        <button type="submit">Add</button>
+      </form>
+      <div id="task-list" class="stack"></div>
+    </section>
+
+    <section id="habitsView" class="view" hidden>
+      <h2>Habits</h2>
+      <form id="habit-form" class="row">
+        <input id="habit-name" placeholder="New habit…" required />
+        <button type="submit">Add</button>
+      </form>
+      <div id="habit-list" class="stack" aria-live="polite"></div>
+    </section>
+
+    <section id="focusView" class="view" hidden>
+      <h2>Focus Timer</h2>
+      <div class="timer card">
+        <div id="timer-display" class="timer-display">25:00</div>
+        <div class="row">
+          <button id="start-timer">Start</button>
+          <button id="pause-timer">Pause</button>
+          <button id="reset-timer">Reset</button>
+        </div>
+        <div class="row">
+          <label>Work (min) <input id="work-mins" type="number" min="1" value="25"></label>
+          <label>Break (min) <input id="break-mins" type="number" min="1" value="5"></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="notesView" class="view" hidden>
+      <h2>Notes</h2>
+      <textarea id="notes-area" placeholder="Quick notes…" rows="10"></textarea>
+      <div class="row right">
+        <button id="save-notes">Save</button>
+        <span id="notes-status" role="status" aria-live="polite"></span>
+      </div>
+      <div class="hint">Notes save locally on this device.</div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>CM6 • Offline-ready • Local-only data</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
